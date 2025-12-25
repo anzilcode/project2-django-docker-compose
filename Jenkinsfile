@@ -12,9 +12,9 @@ pipeline {
         stage('Deploy with Docker Compose') {
             steps {
                 sh '''
-                docker-compose down
-                docker-compose build
-                docker-compose up -d
+                docker compose down
+                docker compose build
+                docker compose up -d
                 docker exec django_app python manage.py migrate
                 '''
             }
